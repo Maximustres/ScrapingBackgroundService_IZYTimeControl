@@ -36,10 +36,9 @@ namespace ScrapingBackgroundService_IZYTimeControl
                 {
                     _logger.LogInformation($"Running scraping at {now:HH:mm}.");
                     await PerformScraping();
-                    await Task.Delay(TimeSpan.FromMinutes(1), stoppingToken); // Evitar múltiples ejecuciones en el mismo minuto
+                    await Task.Delay(TimeSpan.FromMinutes(1), stoppingToken);
                 }
-
-                await Task.Delay(1000, stoppingToken);
+                await Task.Delay(TimeSpan.FromSeconds(30), stoppingToken);
             }
         }
 
